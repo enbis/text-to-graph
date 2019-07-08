@@ -32,7 +32,20 @@ def two(readers, files, typeg):
     plt.title(os.path.basename(files[1]))
 
 def three():
-    print("Not implemented")
+    plt.subplot(131)
+    graphtypes[typeg](points[0], readers[0])
+    plt.axis([0, len(readers[0]), np.min(readers[0])-deltaminmax, np.max(readers[0])+deltaminmax])
+    plt.title(os.path.basename(files[0]))
+
+    plt.subplot(132)
+    graphtypes[typeg](points[1], readers[1])
+    plt.axis([0, len(readers[1]), np.min(readers[1])-deltaminmax, np.max(readers[1])+deltaminmax])
+    plt.title(os.path.basename(files[1]))
+
+    plt.subplot(133)
+    graphtypes[typeg](points[2], readers[2])
+    plt.axis([0, len(readers[2]), np.min(readers[2])-deltaminmax, np.max(readers[2])+deltaminmax])
+    plt.title(os.path.basename(files[2]))
 
 def dot(p, v):
     plt.plot(p, v,'ro')
@@ -53,9 +66,10 @@ graphtypes = { "dot" : dot,
                 "line" : line,
 }
 
-def plotfiles(files, typeg):
+def plotfiles(files, typeg='', overlapped=False):
 
-    #type bar scatter plot
+    if not typeg:
+        typeg = "dot" 
 
     for singlefile in files: 
         reader = openfile(singlefile)
@@ -63,8 +77,14 @@ def plotfiles(files, typeg):
         p = list(range(len(reader)))
         points.append(p)
     
-    plt.figure(1)
-    options[len(files)](readers, files, typeg)
+    if not overlapped:
+        plt.figure(1)
+        options[len(files)](readers, files, typeg)
+    else:
+        fig, ax = plt.subplots()
+        ax.plot(points[0], readers[0], label="first")
+        ax.plot(points[1], readers[1], label="second")
+        ax.legend()
     plt.show()
 
 
