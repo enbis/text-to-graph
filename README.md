@@ -9,7 +9,7 @@ It shows on the screen the plots data row, simply reading it from the text file.
 - Type
 - Overlapped
 
-**Graph types**
+**Types**
 
 Three types of charts available.
 - `dot`
