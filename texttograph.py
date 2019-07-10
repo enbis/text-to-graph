@@ -82,9 +82,9 @@ def plotfiles(files, typeg='', overlapped=False):
         options[len(files)](readers, files, typeg)
     else:
         fig, ax = plt.subplots()
-        ax.bar(points[0], readers[0], label=os.path.basename(files[0]))
-        ax.bar(points[1], readers[1], label=os.path.basename(files[1]))
-        ax.legend()
+        for i, f in enumerate(files):
+            ax.bar(points[i], readers[i], label=os.path.basename(f[i]))
+            ax.legend()
     
     plt.show()
 
