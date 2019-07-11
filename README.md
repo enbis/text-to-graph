@@ -33,8 +33,7 @@ Some examples in more details.
 
 The command `texttograph.plotfiles(['./testfiles/bars1.txt', './testfiles/bars2.txt'], typeg="bar", overlapped=True)` produce:
 
-![Image of chart_bars.png]
-(https://github.com/enbis/text-to-graph/blob/master/images/chart_bars.png)
+![Image of chart_bars.png](https://github.com/enbis/text-to-graph/blob/master/images/chart_bars.png)
 
 
 
