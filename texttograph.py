@@ -2,10 +2,13 @@ import csv
 import os
 import matplotlib.pyplot as plt
 import numpy as np 
+import os
+import matplotlib.pyplot as plt
+import numpy as np 
 
 readers = []
 points = []
-deltaminmax = 10
+deltaminmax = 3
 
 
 def openfile(filename):
@@ -48,13 +51,19 @@ def three():
     plt.title(os.path.basename(files[2]))
 
 def dot(p, v):
-    plt.plot(p, v,'ro')
+    plt.plot(p, v,'o')
 
 def bar(p, v):
     plt.bar(p, v)
 
 def line(p, v):
+    plt.plot(p, v, '-')
+
+def linedot(p, v):
     plt.plot(p, v, '-o')
+
+def linex (p,v):
+    plt.plot(p, v, '-x')
 
 options = { 1 : one, 
             2 : two,
@@ -64,6 +73,8 @@ options = { 1 : one,
 graphtypes = { "dot" : dot,
                 "bar" : bar,
                 "line" : line,
+                "linedot" : linedot,
+                "linex" : linex,
 }
 
 def plotfiles(files, typeg='', overlapped=False):
@@ -83,9 +94,11 @@ def plotfiles(files, typeg='', overlapped=False):
     else:
         fig, ax = plt.subplots()
         for i, f in enumerate(files):
-            ax.bar(points[i], readers[i], label=os.path.basename(f[i]))
+            if typeg == "bar":
+                ax.bar(points[i], readers[i], label=os.path.basename(f))
+            else:
+                ax.plot(points[i], readers[i], label=os.path.basename(f))
             ax.legend()
-    
     plt.show()
 
 
