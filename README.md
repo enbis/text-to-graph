@@ -1,6 +1,7 @@
 # text-to-graph
 
-Shows on the screen different charts of data row, passing as input an array of text files (filepath). It reads it and graphed data looking at the options setted. 
+It works over `matplotlib`, with the advantage of making easier reading data from files.
+Shows on the screen different charts, passing as input an array of text files (filepath). It reads the files and produce the charts looking at the options setted as input. 
 
 ## Graph properties
 
