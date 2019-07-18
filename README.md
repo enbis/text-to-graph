@@ -35,6 +35,14 @@ The command `texttograph.plotfiles(['./testfiles/bars1.txt', './testfiles/bars2.
 
 ![Image of chart_bars.png](https://github.com/enbis/text-to-graph/blob/master/images/chart_bars.png)
 
+The command `texttograph.plotfiles(['./testfiles/tfile0.txt', './testfiles/tfile4.txt', './testfiles/tfile6.txt'], typeg="dot", overlapped=False)` produce:
+
+![Image of chart_bars.png](https://github.com/enbis/text-to-graph/blob/master/images/tfiles.png)
+
+The command `texttograph.plotfiles(['./testfiles/test_one.txt'], 'line')` produce:
+
+![Image of chart_bars.png](https://github.com/enbis/text-to-graph/blob/master/images/test_one.png)
+
 
 
 

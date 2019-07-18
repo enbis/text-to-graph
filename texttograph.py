@@ -8,7 +8,7 @@ import numpy as np
 
 readers = []
 points = []
-deltaminmax = 3
+deltaminmax = 1
 
 
 def openfile(filename):
@@ -34,7 +34,7 @@ def two(readers, files, typeg):
     plt.axis([0, len(readers[1]), np.min(readers[1])-deltaminmax, np.max(readers[1])+deltaminmax])
     plt.title(os.path.basename(files[1]))
 
-def three():
+def three(readers, files, typeg):
     plt.subplot(131)
     graphtypes[typeg](points[0], readers[0])
     plt.axis([0, len(readers[0]), np.min(readers[0])-deltaminmax, np.max(readers[0])+deltaminmax])
@@ -96,6 +96,8 @@ def plotfiles(files, typeg='', overlapped=False):
         for i, f in enumerate(files):
             if typeg == "bar":
                 ax.bar(points[i], readers[i], label=os.path.basename(f))
+            elif typeg == "dot":
+                ax.scatter(points[i], readers[i], label=os.path.basename(f))
             else:
                 ax.plot(points[i], readers[i], label=os.path.basename(f))
             ax.legend()
