@@ -10,12 +10,15 @@ readers = []
 points = []
 deltaminmax = 1
 
-
 def openfile(filename):
+
     textread = open(filename, "r")
     reader = []
     for row in textread:
-        reader.append(round(float(row), 3))
+        try:
+            reader.append(round(float(row), 3))
+        except:
+            print("Corrupted data, not a float. Step over.")
     return reader
 
 def one(reader, files, typeg):
