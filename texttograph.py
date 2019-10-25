@@ -8,7 +8,7 @@ import numpy as np
 
 readers = []
 points = []
-deltaminmax = 1
+deltaminmax = 0.01
 
 def openfile(filename):
 
