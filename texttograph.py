@@ -5,6 +5,7 @@ import numpy as np
 import os
 import matplotlib.pyplot as plt
 import numpy as np 
+import argparse
 
 readers = []
 points = []
@@ -106,7 +107,32 @@ def plotfiles(files, typeg='', overlapped=False):
             ax.legend()
     plt.show()
 
+def main():
+    parser = argparse.ArgumentParser(description="Test argparse")
 
+    parser.add_argument("-f", "--files", nargs='*', type=str,
+                        help="Files to be parsed as chart")
+    
+    parser.add_argument("-t", "--type", nargs=1, type=str,
+                        help="Type of charts - dot, line, bar, linedot, linex")
 
+    parser.add_argument("-o", "--overlap", nargs=1, type=bool,
+                        help="Overlap or not the charts")
 
+    args = parser.parse_args()
+
+    if (args.files) != None:
+        print(args.files)
+    
+    if (args.type) != None:
+        print(args.type)
+
+    if (args.overlap) != None:
+        print(args.overlap)
+
+    plotfiles(args.files, typeg=args.type[0], overlapped=args.overlap[0])
+    
+
+if __name__ == "__main__":
+    main()
  
